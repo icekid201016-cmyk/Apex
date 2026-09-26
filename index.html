@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SoleX Shoes</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:#ff6500;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+nav button{
+    background:none;
+    border:0;
+    color:white;
+    margin:5px;
+    padding:8px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+nav button:hover{
+    color:#ff6500;
+}
+
+.page{
+    display:none;
+    min-height:80vh;
+}
+
+.page.active{
+    display:block;
+}
+
+.hero{
+    min-height:550px;
+    padding:70px 8%;
+    display:flex;
+    align-items:center;
+    color:white;
+    background:
+    linear-gradient(90deg,#000c,#0003),
+    url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80")
+    center/cover;
+}
+
+.hero h1{
+    font-size:55px;
+    max-width:600px;
+}
+
+.hero p{
+    font-size:20px;
+    margin:20px 0;
+}
+
+.btn{
+    background:#ff6500;
+    color:white;
+    border:none;
+    padding:13px 22px;
+    border-radius:7px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:8px;
+}
+
+section{
+    padding:50px 6%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:34px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 15px #0002;
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.info{
+    padding:18px;
+}
+
+.info h2{
+    margin-bottom:8px;
+}
+
+.price{
+    color:#ff6500;
+    font-size:21px;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 6%;
+}
+
+.product-detail{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.product-detail img{
+    width:100%;
+    border-radius:12px;
+}
+
+select,
+input,
+textarea{
+    width:100%;
+    padding:13px;
+    margin:8px 0 18px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.form-box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+}
+
+.about-box{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    line-height:1.8;
+}
+
+.about-box img{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.cart-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+}
+
+.empty{
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:700px){
+
+    header{
+        display:block;
+        text-align:center;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    .hero{
+        min-height:500px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .product-detail{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">SOLEX</div>
+
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('shop')">Shop</button>
+<button onclick="showPage('sneakers')">Sneakers</button>
+<button onclick="showPage('running')">Running</button>
+<button onclick="showPage('formal')">Formal</button>
+<button onclick="showPage('product')">Product</button>
+<button onclick="showPage('cart')">Cart 🛒</button>
+<button onclick="showPage('checkout')">Checkout</button>
+<button onclick="showPage('about')">About</button>
+<button onclick="showPage('contact')">Contact</button>
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<div id="home" class="page active">
+
+<div class="hero">
+
+<div>
+
+<h1>Step Into Your Style</h1>
+
+<p>
+Premium shoes for everyday life,
+sports and special occasions.
+</p>
+
+<button class="btn"
+onclick="showPage('shop')">
+Shop Now
+</button>
+
+</div>
+
+</div>
+
+<section>
+
+<h2 class="title">Featured Shoes</h2>
+
+<div class="products">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Red Runner</h2>
+
+<p>Modern everyday sneaker.</p>
+
+<div class="price">GH₵450</div>
+
+<button class="btn"
+onclick="viewProduct('Red Runner',450)">
+View Product
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Urban Sneaker</h2>
+
+<p>Comfortable streetwear shoe.</p>
+
+<div class="price">GH₵520</div>
+
+<button class="btn"
+onclick="viewProduct('Urban Sneaker',520)">
+View Product
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Classic Black</h2>
+
+<p>Clean and stylish design.</p>
+
+<div class="price">GH₵480</div>
+
+<button class="btn"
+onclick="viewProduct('Classic Black',480)">
+View Product
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- SHOP -->
+
+<div id="shop" class="page">
+
+<div class="container">
+
+<h1 class="title">All Shoes</h1>
+
+<div class="products">
+
+<script>
+
+const products=[
+["Red Runner",450,"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"],
+["Urban Sneaker",520,"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80"],
+["Classic Black",480,"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80"],
+["Sport Flex",560,"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=700&q=80"],
+["White Classic",430,"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=700&q=80"],
+["Street Pro",590,"https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80"]
+];
+
+document.write(
+products.map(p=>`
+
+<div class="card">
+
+<img src="${p[2]}">
+
+<div class="info">
+
+<h2>${p[0]}</h2>
+
+<p>Premium comfortable footwear.</p>
+
+<div class="price">GH₵${p[1]}</div>
+
+<button class="btn"
+onclick="viewProduct('${p[0]}',${p[1]})">
+View Product
+</button>
+
+</div>
+
+</div>
+
+`).join("")
+);
+
+</script>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SNEAKERS -->
+
+<div id="sneakers" class="page">
+
+<div class="container">
+
+<h1 class="title">Sneakers Collection</h1>
+
+<div class="products">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Red Runner</h2>
+
+<p>Flexible and stylish sneaker.</p>
+
+<div class="price">GH₵450</div>
+
+<button class="btn"
+onclick="viewProduct('Red Runner',450)">
+View
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Urban Sneaker</h2>
+
+<p>Perfect for casual outfits.</p>
+
+<div class="price">GH₵520</div>
+
+<button class="btn"
+onclick="viewProduct('Urban Sneaker',520)">
+View
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Street Pro</h2>
+
+<p>Bold streetwear design.</p>
+
+<div class="price">GH₵590</div>
+
+<button class="btn"
+onclick="viewProduct('Street Pro',590)">
+View
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RUNNING -->
+
+<div id="running" class="page">
+
+<div class="container">
+
+<h1 class="title">Running Shoes</h1>
+
+<div class="products">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Sport Flex</h2>
+
+<p>Lightweight running shoe.</p>
+
+<div class="price">GH₵560</div>
+
+<button class="btn"
+onclick="viewProduct('Sport Flex',560)">
+View
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Speed Runner</h2>
+
+<p>Designed for daily training.</p>
+
+<div class="price">GH₵620</div>
+
+<button class="btn"
+onclick="viewProduct('Speed Runner',620)">
+View
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Active Max</h2>
+
+<p>Comfort-focused sports shoe.</p>
+
+<div class="price">GH₵600</div>
+
+<button class="btn"
+onclick="viewProduct('Active Max',600)">
+View
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FORMAL -->
+
+<div id="formal" class="page">
+
+<div class="container">
+
+<h1 class="title">Formal Shoes</h1>
+
+<div class="products">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1614252235316-8c857d7e5c9d?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Executive Black</h2>
+
+<p>Elegant formal footwear.</p>
+
+<div class="price">GH₵750</div>
+
+<button class="btn"
+onclick="viewProduct('Executive Black',750)">
+View
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1616406432452-07bc5938759d?auto=format&fit=crop&w=700&q=80">
+
+<div class="info">
+
+<h2>Brown Oxford</h2>
+
+<p>Classic formal design.</p>
+
+<div class="price">GH₵720</div>
+
+<button class="btn"
+onclick="viewProduct('Brown Oxford',720)">
+View
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT DETAILS -->
+
+<div id="product" class="page">
+
+<div class="container">
+
+<div class="product-detail">
+
+<img id="productImage"
+src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80">
+
+<div>
+
+<h1 id="productName">
+Red Runner
+</h1>
+
+<div class="price"
+id="productPrice">
+GH₵450
+</div>
+
+<p>
+Our shoes are designed to provide
+comfort, durability and modern style.
+</p>
+
+<br>
+
+<h3>Features</h3>
+
+<ul>
+<li>Comfortable interior</li>
+<li>Durable sole</li>
+<li>Modern design</li>
+<li>Lightweight construction</li>
+<li>Suitable for everyday use</li>
+</ul>
+
+<br>
+
+<label>Choose Size</label>
+
+<select id="size">
+
+<option>39</option>
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+<option>44</option>
+</select>
+
+<br>
+
+<button class="btn"
+onclick="addToCart()">
+Add To Cart 🛒
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CART -->
+
+<div id="cart" class="page">
+
+<div class="container">
+
+<div class="cart-box">
+
+<h1>Your Cart 🛒</h1>
+
+<div id="cartItems"
+class="empty">
+Your cart is empty.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div id="checkout" class="page">
+
+<div class="container">
+
+<div class="form-box">
+
+<h1>Checkout</h1>
+
+<br>
+
+<form onsubmit="placeOrder(event)">
+
+<label>Full Name</label>
+
+<input id="name"
+type="text"
+required
+placeholder="Your name">
+
+<label>Phone Number</label>
+
+<input id="phone"
+type="tel"
+required
+placeholder="Your phone number">
+
+<label>Delivery Address</label>
+
+<textarea id="address"
+rows="5"
+required
+placeholder="Your delivery address"></textarea>
+
+<label>Payment Method</label>
+
+<select>
+
+<option>Cash on Delivery</option>
+<option>Mobile Money</option>
+<option>Bank Transfer</option>
+
+</select>
+
+<button class="btn"
+style="width:100%">
+Place Order
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div id="about" class="page">
+
+<div class="container">
+
+<div class="about-box">
+
+<img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=80">
+
+<h1>About SoleX</h1>
+
+<p>
+SoleX is a modern footwear store focused
+on stylish, comfortable and affordable shoes.
+</p>
+
+<br>
+
+<h2>Our Mission</h2>
+
+<p>
+Our mission is to make finding great
+footwear simple and convenient.
+</p>
+
+<br>
+
+<h2>Why Choose SoleX?</h2>
+
+<p>✔ Modern designs</p>
+<p>✔ Comfortable footwear</p>
+<p>✔ Affordable prices</p>
+<p>✔ Easy ordering</p>
+<p>✔ Multiple shoe categories</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div id="contact" class="page">
+
+<div class="container">
+
+<div class="form-box">
+
+<h1>Contact Us</h1>
+
+<br>
+
+<form onsubmit="sendMessage(event)">
+
+<input
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+placeholder="Phone Number">
+
+<textarea
+rows="6"
+placeholder="Your Message"
+required>
+</textarea>
+
+<button class="btn"
+style="width:100%">
+Send Message
+</button>
+
+</form>
+
+<br>
+
+<h2>Get In Touch</h2>
+
+<p>📞 +233 00 000 0000</p>
+
+<p>📧 info@solexshoes.com</p>
+
+<p>📍 Accra, Ghana</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<p>© 2026 SoleX Shoes</p>
+
+<p>Premium Footwear • Sneakers • Running • Formal</p>
+
+</footer>
+
+
+<script>
+
+let selectedProduct={
+    name:"Red Runner",
+    price:450
+};
+
+
+/* PAGE SWITCHING */
+
+function showPage(page){
+
+    document.querySelectorAll(".page")
+    .forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    document.getElementById(page)
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+
+    if(page==="cart"){
+        displayCart();
+    }
+}
+
+
+/* PRODUCT */
+
+function viewProduct(name,price){
+
+    selectedProduct={
+        name:name,
+        price:price
+    };
+
+    document.getElementById("productName")
+    .innerText=name;
+
+    document.getElementById("productPrice")
+    .innerText="GH₵"+price;
+
+    showPage("product");
+}
+
+
+/* ADD TO CART */
+
+function addToCart(){
+
+    let size=document.getElementById("size").value;
+
+    let cart={
+        name:selectedProduct.name,
+        price:selectedProduct.price,
+        size:size
+    };
+
+    localStorage.setItem(
+        "solexCart",
+        JSON.stringify(cart)
+    );
+
+    alert(
+        selectedProduct.name+
+        " has been added to your cart!"
+    );
+
+    showPage("cart");
+}
+
+
+/* DISPLAY CART */
+
+function displayCart(){
+
+    let box=document.getElementById("cartItems");
+
+    let data=localStorage.getItem("solexCart");
+
+    if(!data){
+
+        box.innerHTML=
+        "Your cart is empty.";
+
+        return;
+    }
+
+    let cart=JSON.parse(data);
+
+    box.classList.remove("empty");
+
+    box.innerHTML=`
+
+        <div class="card">
+
+            <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+
+            <div class="info">
+
+                <h2>${cart.name}</h2>
+
+                <p>Size: ${cart.size}</p>
+
+                <div class="price">
+                    GH₵${cart.price}
+                </div>
+
+                <button
+                class="btn"
+                onclick="removeCart()">
+                Remove
+                </button>
+
+                <button
+                class="btn"
+                onclick="showPage('checkout')">
+                Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+/* REMOVE CART */
+
+function removeCart(){
+
+    localStorage.removeItem("solexCart");
+
+    displayCart();
+
+}
+
+
+/* ORDER */
+
+function placeOrder(event){
+
+    event.preventDefault();
+
+    let name=
+    document.getElementById("name").value;
+
+    let phone=
+    document.getElementById("phone").value;
+
+    alert(
+        "Thank you "+name+
+        "! Your order has been received. "+
+        "We will contact you on "+phone+"."
+    );
+
+    localStorage.removeItem("solexCart");
+
+    showPage("home");
+
+}
+
+
+/* CONTACT */
+
+function sendMessage(event){
+
+    event.preventDefault();
+
+    alert(
+        "Thank you! Your message has been sent."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
